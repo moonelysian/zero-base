@@ -907,14 +907,14 @@ textarea::-webkit-outer-spin-button {
 
 .order-type-popup {
   position: fixed;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
+  background-color: #ffff;
   padding: 32px 0 40px;
-  border-radius: 16px 16px 0 0;
-  background-color: #fff;
-  text-align: center;
   z-index: 10000;
+  text-align: center;
+  border-radius: 16px 16px 0 0;
 }
 
 .order-type-popup .title {
@@ -940,13 +940,13 @@ textarea::-webkit-outer-spin-button {
   border-left: 1px solid #f2f2f2;
 }
 
-.order-type-popup .icon {
+.order-type-popup .type-item .icon {
   width: 100px;
   height: auto;
   color: #03c75a;
 }
 
-.order-type-popup .desc {
+.order-type-popup .type-item .desc {
   margin-top: 8px;
   font-size: 15px;
   line-height: 1.5;
@@ -954,15 +954,15 @@ textarea::-webkit-outer-spin-button {
   color: #000;
 }
 
-.order-type-popup .btn-selection {
+.order-type-popup .type-item .button-selection {
   display: inline-block;
   margin-top: 10px;
   padding: 6px 18px;
   font-size: 16px;
   font-weight: 700;
-  border-radius: 28px;
-  background-color: #424242;
   color: #fff;
+  background-color: #424242;
+  border-radius: 28px;
 }
 
 .recent-order-area {
