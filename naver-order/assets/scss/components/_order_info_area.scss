@@ -1,6 +1,6 @@
 .order-info-area {
     padding: 10px $m-padding 20px;
-    border-bottom: 1px solid rgba(0,0,0,0.4);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
     background-color: $booking-color-bg155;
 
     .info-main-title {
@@ -45,7 +45,7 @@
             background-color: $booking-color-bg157;
             font-size: 15px;
             color: $booking-color-text126;
-            box-shadow: 0 2px 3px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 3px 0 rgba(0,0,0,0.05);
             &::after {
                 content: '';
                 position: absolute;
