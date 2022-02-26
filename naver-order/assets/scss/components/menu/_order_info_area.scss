@@ -14,7 +14,6 @@
         font-weight: 700;
         letter-spacing: -0.3px;
         color: $booking-color-text6;
-
         .ico-n-logo {
             margin-right: 6px;
             width: 24px;
@@ -27,14 +26,13 @@
     display: flex;
     align-items: center;
     margin-top: 12px;
-
     .tab-switch {
         flex: 1;
         background-color: $booking-color-bg158;
         line-height: 40px;
         font-size: 13px;
         font-weight: 700;
-        color: #6666;
+        color: #666;
         letter-spacing: -0.3px;
         text-align: center;
 
@@ -61,8 +59,8 @@
 
             .ico-check {
                 display: inline-block;
-                vertical-align: middle;
                 margin-left: 4px;
+                vertical-align: middle;
             }
         }
     }
@@ -82,7 +80,6 @@
     font-size: 14px;
     letter-spacing: -0.3px;
     color: #333;
-
     &.alert {
         color: $point-color;
         font-weight: 700;

@@ -9,8 +9,8 @@
 
     .place-header {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         height: $place-header-height;
 
         .title {
@@ -25,9 +25,9 @@
         }
 
         .my-orders {
+            padding-right: $m-padding;
             font-size: 15px;
             font-weight: 700;
-            padding-right: $m-padding;
         }
     }
 
@@ -39,22 +39,20 @@
 
     .tab-inner {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        width: 100%;
+        align-items: center;
         padding: 0 8px;
+        width: 100%;
 
         .tab {
             flex: 1;
-            text-align: center;
-            opacity: 0.7;
             padding: 0 12px;
             font-size: 16px;
-
+            text-align: center;
+            opacity: 0.7;
             &.is-active {
                 font-weight: 700;
                 opacity: 1;
-
                 .txt::after {
                     content: '';
                     position: absolute;
@@ -62,14 +60,14 @@
                     left: 0;
                     right: 0;
                     height: 2px;
-                    background-color: #ffff;
+                    background-color: #fff;
                 }
             }
 
             .txt {
+                position: relative;
                 display: inline-block;
                 padding: 0 4px;
-                position: relative;
                 line-height: $place-tab-height;
             }
         }
