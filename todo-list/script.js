@@ -106,12 +106,16 @@
     const $editInput = $item.querySelector("input[type='text']");
     const $contentButtons = $item.querySelector(".content_buttons");
     const $editButtons = $item.querySelector(".edit_buttons");
+    const value = $editInput.value;
 
     if (e.target.className === "todo_edit_button") {
       $label.style.display = "none";
       $contentButtons.style.display = "none";
       $editInput.style.display = "block";
       $editButtons.style.display = "block";
+      $editInput.focus();
+      $editInput.value = "";
+      $editInput.value = value;
     }
 
     if (e.target.className === "todo_edit_cancel_button") {
@@ -119,7 +123,38 @@
       $contentButtons.style.display = "block";
       $editInput.style.display = "none";
       $editButtons.style.display = "none";
+      $editInput.value = $label.innerText;
     }
+  };
+
+  const editTodo = (e) => {
+    if (e.target.className !== "todo_edit_confirm_button") return;
+    const $item = e.target.closest(".item");
+    const $editInput = $item.querySelector("input[type='text']");
+    const id = $item.dataset.id;
+    const content = $editInput.value;
+
+    fetch(`${API_URL}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ content }),
+    })
+      .then(getTodos)
+      .catch((error) => console.error(error.message));
+  };
+
+  const removeTodo = (e) => {
+    if (e.target.className !== "todo_remove_button") return;
+    const $item = e.target.closest(".item");
+    const id = $item.dataset.id;
+
+    fetch(`${API_URL}/${id}`, {
+      method: "DELETE",
+    })
+      .then(getTodos)
+      .catch((error) => console.error(error.message));
   };
 
   const init = () => {
@@ -127,6 +162,8 @@
     $form.addEventListener("submit", addTodo);
     $todos.addEventListener("click", toggleTodo);
     $todos.addEventListener("click", changeEditMode);
+    $todos.addEventListener("click", editTodo);
+    $todos.addEventListener("click", removeTodo);
   };
 
   init();
