@@ -9,6 +9,17 @@
   const $todos = get(".todos");
   const $form = get(".todo_form");
   const $todoInput = get(".todo_input");
+  const $pagination = get(".pagination");
+
+  const limit = 5;
+  const totalCount = 53;
+  const pageCount = 5;
+  let currentPage = 1;
+
+  const pagination = () => {
+    let totalPage = Math.ceil(totalCount / limit);
+    let pageGroup = Math.ceil(currentPage / pageCount);
+  };
 
   const createTodoElement = (item) => {
     const { id, content, completed } = item;
@@ -55,7 +66,7 @@
   };
 
   const getTodos = () => {
-    fetch(API_URL)
+    fetch(`${API_URL}?_page=${currentPage}&_limit=${limit}`)
       .then((response) => response.json())
       .then((todos) => {
         renderAllTodos(todos);
@@ -158,7 +169,10 @@
   };
 
   const init = () => {
-    window.addEventListener("DOMContentLoaded", getTodos);
+    window.addEventListener("DOMContentLoaded", () => {
+      getTodos();
+      pagination();
+    });
     $form.addEventListener("submit", addTodo);
     $todos.addEventListener("click", toggleTodo);
     $todos.addEventListener("click", changeEditMode);
