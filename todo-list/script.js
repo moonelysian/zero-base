@@ -81,6 +81,9 @@
               <input type="text" value="${content}" />
             </div>
             <div class="item_buttons content_buttons">
+              <button class="todo_recommend_button">
+                <i class="far fa-edit"></i>
+              </button>
               <button class="todo_edit_button">
                 <i class="far fa-edit"></i>
               </button>
@@ -156,6 +159,12 @@
       .catch((error) => console.error(error.message));
   };
 
+  const recommendTodo = (e) => {
+    if (!e.target.classList.contains("todo_recommend_button")) {
+      return;
+    }
+  };
+
   const changeEditMode = (e) => {
     const $item = e.target.closest(".item");
     const $label = $item.querySelector("label");
@@ -224,6 +233,7 @@
     $todos.addEventListener("click", changeEditMode);
     $todos.addEventListener("click", editTodo);
     $todos.addEventListener("click", removeTodo);
+    $todos.addEventListener("click", recommendTodo);
   };
 
   init();
